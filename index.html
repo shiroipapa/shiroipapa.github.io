@@ -153,7 +153,12 @@
   var kinetic = document.getElementById('kinetic');
   function verdict() {
     var go = function () { kinetic.setAttribute('data-state', 'v'); };
-    if (document.startViewTransition) document.startViewTransition(go); else go();
+    // 背景タブなど、表示されていない間は View Transition が InvalidStateError で中断される。
+    // そのときは切り替えだけ行い、中断の Promise は握りつぶす（コンソールに未処理エラーを出さない）。
+    if (!document.startViewTransition || document.hidden) { go(); return; }
+    var vt = document.startViewTransition(go);
+    var quiet = function () {};
+    vt.ready.catch(quiet); vt.finished.catch(quiet); if (vt.updateCallbackDone) vt.updateCallbackDone.catch(quiet);
   }
   if (reduced) { kinetic.setAttribute('data-state', 'v'); }
   else {
