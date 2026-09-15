@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Shiroipapa Apps</title>
+<meta name="description" content="Shiroipapa Apps builds Unity Editor tooling and developer-workflow extensions: data migration, verification of what actually landed, and navigation in large codebases.">
+<link rel="canonical" href="https://shiroipapa.github.io/about/">
+<link rel="icon" href="/assets/img/brand/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/brand/icon-256.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shiroipapa Apps">
+<meta property="og:title" content="About — Shiroipapa Apps">
+<meta property="og:description" content="Shiroipapa Apps builds Unity Editor tooling and developer-workflow extensions: data migration, verification of what actually landed, and navigation in large codebases.">
+<meta property="og:url" content="https://shiroipapa.github.io/about/">
+<meta property="og:image" content="https://shiroipapa.github.io/assets/img/brand/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js", (matchMedia("(prefers-reduced-motion: reduce)").matches || /[?&]static=1/.test(location.search)) ? "no-motion" : "motion");</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/img/brand/icon.svg" alt=""><span>Shiroipapa Apps</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/products/">Products</a>
+      <a href="/about/" aria-current="page">About</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>About Shiroipapa Apps</h2>
+    <p class="lede">A small independent studio building Editor tooling for developers.</p>
+
+    <p>Shiroipapa Apps makes tools for two kinds of working day: inside the Unity Editor, and
+       inside a code editor. The common thread is unglamorous work that is easy to get wrong by
+       hand — moving data from one system to another, checking that nothing was lost on the way,
+       and keeping a large project navigable.</p>
+
+    <h3 style="margin-top:2rem">What we work on</h3>
+    <div class="grid">
+      <article class="card">
+        <h3>Unity Editor tooling</h3>
+        <p>Editor windows and pipelines that run inside Unity, using the official packages and
+           public APIs. Nothing to run from a command line.</p>
+      </article>
+      <article class="card">
+        <h3>Migration and validation</h3>
+        <p>Moving localization data between systems, and then verifying the result
+           cell by cell instead of spot-checking it.</p>
+      </article>
+      <article class="card">
+        <h3>Developer workflow</h3>
+        <p>Editor extensions that cut repetitive lookups in large codebases — scoped
+           completion, navigation, and reports on what is unused.</p>
+      </article>
+    </div>
+
+    <h3 style="margin-top:2.2rem">How the work is verified</h3>
+    <ul class="plain">
+      <li>Behaviour is covered by automated tests that run on the real software — for Unity
+          products, on real Unity Editors, with negative tests that must fail when the code is
+          broken.</li>
+      <li>Only combinations that were actually measured are listed as supported. Versions that
+          were not tested are not claimed.</li>
+      <li>Comparisons against other tools are published with the details behind
+          them: <a href="https://github.com/shiroipapa/benchmarks">github.com/shiroipapa/benchmarks</a>.</li>
+      <li>Where a competing tool does something better, that goes on the benchmark page too.</li>
+    </ul>
+
+    <h3 style="margin-top:2.2rem">Contact</h3>
+    <p>Email <a href="mailto:shiroipapaapps@gmail.com">shiroipapaapps@gmail.com</a> — questions,
+       bug reports, licence problems. See <a href="/support/">Support</a> for what to include.</p>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap cols">
+    <div>
+      <p><strong style="color:#fff">Shiroipapa Apps</strong></p>
+      <p>Small tools for a brighter tomorrow.</p>
+    </div>
+    <div>
+      <p><a href="/products/">Products</a></p>
+      <p><a href="/about/">About</a></p>
+    </div>
+    <div>
+      <p><a href="/support/">Support &amp; contact</a></p>
+      <p><a href="/privacy/">Privacy</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

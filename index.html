@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shiroipapa Apps — small, dependable tools for Unity and code editors</title>
+<meta name="description" content="Shiroipapa Apps builds small Editor tools for Unity developers and extensions for code editors. Each tool does one job properly, and the claims are measured rather than asserted.">
+<link rel="canonical" href="https://shiroipapa.github.io/">
+<link rel="icon" href="/assets/img/brand/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/brand/icon-256.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shiroipapa Apps">
+<meta property="og:title" content="Shiroipapa Apps — small, dependable tools for Unity and code editors">
+<meta property="og:description" content="Small Editor tools for Unity developers and extensions for code editors. One job each, done properly, and measured rather than claimed.">
+<meta property="og:url" content="https://shiroipapa.github.io/">
+<meta property="og:image" content="https://shiroipapa.github.io/assets/img/brand/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js", (matchMedia("(prefers-reduced-motion: reduce)").matches || /[?&]static=1/.test(location.search)) ? "no-motion" : "motion");</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/img/brand/icon.svg" alt=""><span>Shiroipapa Apps</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/products/">Products</a>
+      <a href="/about/">About</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </div>
+</header>
+
+<div class="bar-progress" aria-hidden="true"></div>
+
+<div class="stage-hero" id="stage">
+  <canvas id="lattice" aria-hidden="true"></canvas>
+  <div class="fallback" aria-hidden="true"></div>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="scan" id="scan" aria-hidden="true"></div>
+  <div class="wrap">
+    <img class="mark enter" src="/assets/img/brand/icon-256.png" alt="" width="84" height="84">
+    <p class="tagline enter d2">Shiroipapa Apps &middot; Small tools for a brighter tomorrow</p>
+    <h1 class="kinetic enter d2" id="kinetic" data-state="q" aria-label="Did everything migrate correctly? Verified. Every imported key. Every cell.">
+      <span class="q" aria-hidden="true">Did everything migrate correctly?</span>
+      <span class="v">Verified. <em>Every imported key. Every cell.</em></span>
+    </h1>
+    <p class="sub enter d3" style="color:var(--muted);max-width:58ch;margin:0.6rem auto 1.8rem;font-size:clamp(1.02rem,2vw,1.2rem)">
+       We build small Editor tools for Unity developers and for people who live in a code editor.
+       Every compatibility and behaviour claim on these pages
+       comes from a test we actually ran.</p>
+    <div class="actions enter d4" style="justify-content:center">
+      <a class="btn" href="/products/localeproof/">See LocaleProof in action</a>
+      <a class="btn btn-ghost" href="/products/">All products</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Real product</p>
+    <h2>This is the actual Editor window — not a concept image</h2>
+    <p class="lede">The LocaleProof window in Unity (Japanese UI) after a full run on the bundled sample export:
+       13 cells compared, nothing missing, changed, duplicated or extra.</p>
+    <div class="float" id="float">
+      <div class="tilt" id="tilt">
+      <div class="win" id="win" style="position:relative">
+        <img src="/assets/img/localeproof/editor-verify.png" alt="The LocaleProof window in Unity showing the four steps and a passing verification result" width="1600" height="975">
+        <div class="sheen" aria-hidden="true"></div>
+      </div>
+      </div>
+      <p class="caption">Runs entirely inside the Unity Editor — no command line, no external runtime.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt strip">
+  <div class="wrap">
+    <p class="eyebrow">Featured</p>
+    <h2>What we are finishing right now</h2>
+    <p class="lede">Status is stated plainly. Nothing here is on sale yet — when a product can be bought,
+       its page will say where.</p>
+    <div class="grid">
+      <article class="card card-product spot">
+        <img class="media" src="/assets/img/localeproof/social.png" alt="" width="1200" height="630">
+        <div>
+          <div class="card-head">
+            <img src="/assets/img/localeproof/icon.png" alt="LocaleProof icon">
+            <div><h3 style="margin:0">LocaleProof</h3><span class="status status-soon">Coming to the Unity Asset Store</span></div>
+          </div>
+          <p style="margin-top:.7rem">A Unity Editor tool that moves your exported I2&nbsp;Localization CSV into Unity's own
+             String Tables, then verifies every imported key and every cell against the source. Out-of-scope terms
+             are listed before anything is written, and generated files can be rolled back.</p>
+          <p style="margin-top:.6rem"><a href="/products/localeproof/#experience">Walk through a migration &rarr;</a></p>
+        </div>
+      </article>
+      <article class="card card-product spot">
+        <img class="media" src="/assets/img/css-class-scope/icon-256.png" alt="" width="256" height="256" style="width:100%;height:auto;max-height:240px;object-fit:contain;background:#0B1219;padding:1.5rem">
+        <div>
+          <div class="card-head">
+            <div><h3 style="margin:0">CSS Class Scope</h3><span class="status status-dev">In development</span></div>
+          </div>
+          <p style="margin-top:.7rem">A VS&nbsp;Code extension that keeps CSS class autocomplete, go&nbsp;to&nbsp;definition and
+             find&nbsp;references inside the package you are editing, instead of offering every class in a
+             monorepo. Built and measured; not yet published.</p>
+          <p style="margin-top:.6rem"><a href="/products/#css-class-scope">Product details &rarr;</a></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Proof, not promises</p>
+    <h2>Only what was measured is written here</h2>
+    <div class="grid" style="margin-top:1.6rem">
+      <div class="card stat stat-text"><span class="num">6000.3<i>.22f1</i></span><b>Localization 1.5.4 and 1.5.9 — pass</b><span>Automated tests on a real Unity Editor, with negative tests that must fail when the code is broken.</span></div>
+      <div class="card stat stat-text"><span class="num">6000.6<i>.0f1</i></span><b>Localization 1.5.13 — pass</b><span>In our tests, 1.5.9 did not compile on 6000.6 — the Localization package itself failed, not LocaleProof. Use 1.5.13 there.</span></div>
+      <div class="card stat" data-n="13" style="--n:13"><span class="num"><i> cells</i></span><b>Compared on the bundled sample</b><span>7 keys, 2 locales, every cell checked against the source — and one empty cell counted separately, not hidden.</span></div>
+      <div class="card stat" data-n="0"><span class="num"><i> telemetry</i></span><b>No network calls, no accounts</b><span>Editor-only assembly, nothing in your build, source included.</span></div>
+    </div>
+    <p class="fine" style="margin-top:1.2rem">Localization 1.5.10–1.5.12 have not been measured and are not claimed as supported.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow">How these tools are built</p>
+    <h2>The same three rules apply to everything here</h2>
+    <div class="grid" style="margin-top:1.6rem">
+      <article class="card spot"><h3>One job, stated plainly</h3><p>A tool says what it covers and what it does not. Anything out of scope is listed up front, not discovered half-way through.</p></article>
+      <article class="card spot"><h3>Measured, not claimed</h3><p>Compatibility and behaviour are established by tests that run on the actual software — real Unity Editors — and only the combinations we measured are listed as supported.</p></article>
+      <article class="card spot"><h3>Safe by default</h3><p>For tools that write files: nothing is written until you ask for it, files the tool did not create are overwritten only when you explicitly allow it, and what it generates can be rolled back.</p></article>
+    </div>
+  </div>
+</section>
+
+<div class="aurora">
+  <div class="wrap">
+    <h2>Move with confidence. Verify before you trust.</h2>
+    <p>LocaleProof is being prepared for submission to the Unity Asset Store.</p>
+    <div class="actions" style="justify-content:center"><a class="btn" href="/products/localeproof/">See LocaleProof in action</a></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduced = root.classList.contains('no-motion');
+
+  /* ---------- 1. kinetic headline: question -> verdict, via the View Transitions API ---------- */
+  var kinetic = document.getElementById('kinetic');
+  function verdict() {
+    var go = function () { kinetic.setAttribute('data-state', 'v'); };
+    if (document.startViewTransition) document.startViewTransition(go); else go();
+  }
+  if (reduced) { kinetic.setAttribute('data-state', 'v'); }
+  else {
+    setTimeout(function () { document.getElementById('scan').classList.add('run'); }, 1500);
+    setTimeout(verdict, 2300);
+  }
+
+  /* ---------- 2. WebGL2 "verification lattice" behind the hero ---------- */
+  var canvas = document.getElementById('lattice');
+  var gl = !reduced && canvas.getContext('webgl2', { antialias: false, alpha: true, powerPreference: 'low-power' });
+  if (gl) {
+    var vs = '#version 300 es\nin vec2 p; void main(){ gl_Position = vec4(p,0.,1.); }';
+    var fs = '#version 300 es\nprecision highp float; out vec4 o; uniform vec2 R; uniform float T; uniform vec2 M; uniform float V;\n' +
+      'float h(vec2 q){ return fract(sin(dot(q, vec2(127.1, 311.7))) * 43758.5453); }\n' +
+      'void main(){\n' +
+      '  vec2 uv = (gl_FragCoord.xy - 0.5 * R) / R.y;\n' +
+      '  uv.x += (M.x - 0.5) * 0.06; \n' +
+      '  float horizon = 0.12 + (M.y - 0.5) * 0.04;\n' +
+      '  float y = horizon - uv.y;               // distance below the horizon\n' +
+      '  vec3 col = vec3(0.043, 0.086, 0.129);   // ink\n' +
+      '  if (y > 0.002) {\n' +
+      '    float z = 0.9 / y;                     // perspective depth\n' +
+      '    vec2 g = vec2(uv.x * z, z + T * 0.9);  // floor coordinates, moving toward the viewer\n' +
+      '    vec2 cell = floor(g * 1.6);\n' +
+      '    vec2 f = fract(g * 1.6);\n' +
+      '    float line = smoothstep(0.06, 0.0, min(min(f.x, 1.0 - f.x), min(f.y, 1.0 - f.y)) * 1.0);\n' +
+      '    float fade = exp(-y * 4.5) ;           // near = bright, far = dim\n' +
+      '    float rnd = h(cell);\n' +
+      '    float wave = smoothstep(0.35, 0.0, abs(fract(cell.y * 0.05 - T * 0.12 + rnd * 0.15) - 0.5));\n' +
+      '    float lit = step(0.55, rnd) * wave * V;\n' +
+      '    vec3 teal = vec3(0.0, 0.81, 0.8); vec3 green = vec3(0.21, 0.77, 0.56);\n' +
+      '    vec3 cellcol = mix(teal, green, step(0.8, rnd));\n' +
+      '    col += line * fade * vec3(0.10, 0.22, 0.26) * 1.6;\n' +
+      '    col += (1.0 - line) * lit * fade * cellcol * 0.85;\n' +
+      '    col += lit * fade * cellcol * 0.25;   // bloom-ish\n' +
+      '  }\n' +
+      '  float glow = exp(-abs(uv.y - horizon) * 18.0) * 0.35;\n' +
+      '  col += glow * vec3(0.0, 0.81, 0.8) * V;\n' +
+      '  float vig = smoothstep(1.3, 0.35, length(uv * vec2(0.75, 1.0)));\n' +
+      '  col = mix(vec3(0.043, 0.086, 0.129), col, vig);\n' +
+      '  o = vec4(col, 1.0);\n' +
+      '}';
+    function sh(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
+    var prog = gl.createProgram(); gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(prog);
+    if (gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      gl.useProgram(prog);
+      var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+      var loc = gl.getAttribLocation(prog, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+      var uR = gl.getUniformLocation(prog, 'R'), uT = gl.getUniformLocation(prog, 'T'), uM = gl.getUniformLocation(prog, 'M'), uV = gl.getUniformLocation(prog, 'V');
+      var mx = 0.5, my = 0.5, tx = 0.5, ty = 0.5, running = true, t0 = performance.now();
+      function size() { var d = Math.min(devicePixelRatio || 1, 1.5); canvas.width = canvas.clientWidth * d; canvas.height = canvas.clientHeight * d; gl.viewport(0, 0, canvas.width, canvas.height); }
+      size(); addEventListener('resize', size);
+      document.getElementById('stage').addEventListener('pointermove', function (e) { tx = e.clientX / innerWidth; ty = 1 - e.clientY / innerHeight; });
+      document.addEventListener('visibilitychange', function () { running = !document.hidden; if (running) requestAnimationFrame(frame); });
+      var stageVisible = true;
+      new IntersectionObserver(function (es) { stageVisible = es[0].isIntersecting; if (stageVisible) requestAnimationFrame(frame); }).observe(canvas);
+      function frame(now) {
+        if (!running || !stageVisible) return;
+        mx += (tx - mx) * 0.06; my += (ty - my) * 0.06;
+        var t = (now - t0) / 1000;
+        var v = Math.min(1, Math.max(0, (t - 2.2) / 1.2));   // the lattice "lights up" as the verdict lands
+        gl.uniform2f(uR, canvas.width, canvas.height); gl.uniform1f(uT, t); gl.uniform2f(uM, mx, my); gl.uniform1f(uV, v);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+      canvas.style.opacity = '1';
+    } else { canvas.remove(); }
+  } else { canvas.remove(); }
+
+  /* ---------- 3. the real window follows the pointer in 3D ---------- */
+  var fl = document.getElementById('float'), win = document.getElementById('win'), tilt = document.getElementById('tilt');
+  if (fl && !reduced && matchMedia('(pointer: fine)').matches) {
+    fl.addEventListener('pointermove', function (e) {
+      var r = fl.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      tilt.style.setProperty('--py', (x * 8).toFixed(2) + 'deg');
+      tilt.style.setProperty('--px', (-y * 6).toFixed(2) + 'deg');
+      win.querySelector('.sheen').style.setProperty('--sx', (x * 80).toFixed(0) + '%');
+    });
+    fl.addEventListener('pointerleave', function () { tilt.style.setProperty('--px', '0deg'); tilt.style.setProperty('--py', '0deg'); });
+  }
+
+  /* ---------- 4. spotlight cards ---------- */
+  document.querySelectorAll('.spot').forEach(function (el) {
+    el.addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    });
+  });
+
+  /* ---------- 5. numbers counted with CSS (@property --n) once in view ---------- */
+  var stats = document.querySelectorAll('.stat[data-n]');
+  function arm(el) { el.classList.add('is-in'); requestAnimationFrame(function () { el.style.setProperty('--n', el.getAttribute('data-n')); }); }
+  if (reduced || !('IntersectionObserver' in window)) { stats.forEach(function (el) { el.style.setProperty('--n', el.getAttribute('data-n')); }); }
+  else {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { arm(e.target); io.unobserve(e.target); } }); }, { threshold: 0.35 });
+    stats.forEach(function (el) { el.style.setProperty('--n', 0); io.observe(el); });
+  }
+})();
+</script>
+
+<footer class="site-footer">
+  <div class="wrap cols">
+    <div>
+      <p><strong style="color:#fff">Shiroipapa Apps</strong></p>
+      <p>Small tools for a brighter tomorrow.</p>
+    </div>
+    <div>
+      <p><a href="/products/">Products</a></p>
+      <p><a href="/about/">About</a></p>
+    </div>
+    <div>
+      <p><a href="/support/">Support &amp; contact</a></p>
+      <p><a href="/privacy/">Privacy</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

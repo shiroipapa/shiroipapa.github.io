@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LocaleProof — verified I2 to Unity Localization migration</title>
+<meta name="description" content="LocaleProof is a Unity Editor tool that migrates an I2 Localization CSV export into Unity String Tables and verifies every imported key and cell against the source. Coming to the Unity Asset Store.">
+<link rel="canonical" href="https://shiroipapa.github.io/products/localeproof/">
+<link rel="icon" href="/assets/img/brand/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/brand/icon-256.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shiroipapa Apps">
+<meta property="og:title" content="LocaleProof — migrate I2 Localization into Unity String Tables, verified">
+<meta property="og:description" content="LocaleProof is a Unity Editor tool that migrates an I2 Localization CSV export into Unity String Tables and verifies every imported key and cell against the source. Coming to the Unity Asset Store.">
+<meta property="og:url" content="https://shiroipapa.github.io/products/localeproof/">
+<meta property="og:image" content="https://shiroipapa.github.io/assets/img/localeproof/social.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js", (matchMedia("(prefers-reduced-motion: reduce)").matches || /[?&]static=1/.test(location.search)) ? "no-motion" : "motion");</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/img/brand/icon.svg" alt=""><span>Shiroipapa Apps</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/products/" aria-current="page">Products</a>
+      <a href="/about/">About</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </div>
+</header>
+
+
+
+<div class="c-hero">
+  <div class="grid-motif" aria-hidden="true"></div>
+  <div class="wrap">
+    <img class="mark" src="/assets/img/localeproof/icon.png" alt="" width="72" height="72">
+    <p class="tagline">LocaleProof &middot; Unity Editor tool &middot; Coming to the Unity Asset Store</p>
+    <h1 class="flip" aria-label="Did everything migrate correctly? Verified. Every imported key. Every cell.">
+      <span class="before" aria-hidden="true">Did everything migrate correctly?</span>
+      <span class="after">Verified. <em>Every imported key. Every cell.</em></span>
+    </h1>
+    <p class="sub">LocaleProof moves your I2&nbsp;Localization export into Unity String Tables — and then
+       checks the result against your source, cell by cell. It is a verification tool that happens to
+       convert, not a converter that hopes for the best.</p>
+    <div class="actions">
+      <a class="btn" href="#experience">Walk through a migration</a>
+      <a class="btn btn-ghost" href="#real">See the real Editor window</a>
+    </div>
+  </div>
+</div>
+
+<section class="exp" id="experience">
+  <div class="wrap">
+    <p class="eyebrow">The experience</p>
+    <h2>Four steps. Nothing is written until you ask. The imported text is checked at the end.</h2>
+    <p class="lede">A walk-through of the bundled sample export (eight I2 terms, two languages), redrawn on this
+       page using the numbers the tool reports. The real Editor window is further down.</p>
+
+    <div class="layout">
+      <aside class="rail" aria-label="Steps">
+        <p class="eyebrow" style="margin:0">Progress</p>
+        <ol id="rail">
+          <li data-step="1"><b>01</b> Inspect</li>
+          <li data-step="2"><b>02</b> Convert</li>
+          <li data-step="3"><b>03</b> Import</li>
+          <li data-step="4"><b>04</b> Verify</li>
+        </ol>
+      </aside>
+
+      <div>
+        <article class="stage" data-step="1" id="step-inspect">
+          <h3>1 &middot; Inspect — read everything, write nothing</h3>
+          <p class="what">The export is parsed and laid out: language columns, keys, categories, duplicates,
+             empty cells, and the terms that will not move as ordinary text: one is moved unchanged
+             but flagged for review, and one is not moved at all. The two rows marked below are the ones
+             a human would normally have to find by eye.</p>
+          <div class="sim">
+            <div class="bar"><i></i><i></i><i></i> SampleI2Export.csv <span class="right">2 language columns &middot; 8 keys</span></div>
+            <div class="body">
+              <div class="rows">
+            <div class="row head"><span>Key</span><span>Type</span><span>English</span><span>Japanese</span></div>
+            <div class="row" style="--i:0"><span>Default/Title</span><span class="type">Text</span><span>Sky Harbor</span><span>スカイハーバー</span></div>
+            <div class="row" style="--i:1"><span>Menu/Start</span><span class="type">Text</span><span>Start</span><span>はじめる</span></div>
+            <div class="row" style="--i:2"><span>Menu/Options</span><span class="type">Text</span><span>Options</span><span>設定</span></div>
+            <div class="row" style="--i:3"><span>Menu/Quit</span><span class="type">Text</span><span>Quit</span><span>終了</span></div>
+            <div class="row" style="--i:4"><span>Shop/Price</span><span class="type">Text</span><span>Price: 1,000, "on sale"</span><span>価格: 1,000円「セール中」</span></div>
+            <div class="row" style="--i:5"><span>Shop/SoldOut</span><span class="type">Text</span><span>Sold out</span><span>売り切れ</span></div>
+            <div class="row flag" style="--i:6"><span>Hud/Points</span><span class="type">Text</span><span>You have {[POINTS]} points[i2p_Zero]…</span><span>—</span></div>
+            <div class="row skip" style="--i:7"><span>Ui/HeaderFont</span><span class="type">Font</span><span>—</span><span>—</span></div>
+              </div>
+              <p class="status-line"><span class="dot"></span> Nothing has been written yet.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="stage" data-step="2" id="step-convert">
+          <h3>2 &middot; Convert — one table per category, with a receipt</h3>
+          <p class="what">Seven text terms become four Unity-shaped tables. A manifest records every file written and
+             its SHA-256, so you can see later exactly which files it wrote.</p>
+          <div class="sim">
+            <div class="bar"><i></i><i></i><i></i> Output folder <span class="right">4 tables &middot; manifest written</span></div>
+            <div class="body">
+              <div class="tables">
+                <div class="tbl" style="--i:0"><b>Default</b>Title<em> &middot; 1 key</em></div>
+                <div class="tbl" style="--i:1"><b>Menu</b>Start, Options, Quit<em> &middot; 3 keys</em></div>
+                <div class="tbl" style="--i:2"><b>Shop</b>Price, SoldOut<em> &middot; 2 keys</em></div>
+                <div class="tbl flagged" style="--i:3"><b>Hud</b>Points <span class="f">&middot; carried as-is, flagged</span></div>
+              </div>
+              <p class="status-line"><span class="dot"></span> Existing files not created by LocaleProof are not overwritten unless you allow it.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="stage" data-step="3" id="step-import">
+          <h3>3 &middot; Import — through Unity's own importer</h3>
+          <p class="what">String Table Collections are created or reused, Locales are set up, and the CSV goes
+             in through the Localization package's importer. The plural-tag value goes in exactly as it was,
+             and stays flagged for your review. The font term never enters a String Table.</p>
+          <div class="sim">
+            <div class="bar"><i></i><i></i><i></i> String Table Collections <span class="right">Default &middot; Menu &middot; Shop &middot; Hud</span></div>
+            <div class="body">
+              <div class="rows">
+            <div class="row head"><span>Key</span><span>Type</span><span>English</span><span>Japanese</span></div>
+            <div class="row" style="--i:0"><span>Default/Title</span><span class="type">Text</span><span>Sky Harbor</span><span>スカイハーバー</span></div>
+            <div class="row" style="--i:1"><span>Menu/Start</span><span class="type">Text</span><span>Start</span><span>はじめる</span></div>
+            <div class="row" style="--i:2"><span>Menu/Options</span><span class="type">Text</span><span>Options</span><span>設定</span></div>
+            <div class="row" style="--i:3"><span>Menu/Quit</span><span class="type">Text</span><span>Quit</span><span>終了</span></div>
+            <div class="row" style="--i:4"><span>Shop/Price</span><span class="type">Text</span><span>Price: 1,000, "on sale"</span><span>価格: 1,000円「セール中」</span></div>
+            <div class="row" style="--i:5"><span>Shop/SoldOut</span><span class="type">Text</span><span>Sold out</span><span>売り切れ</span></div>
+            <div class="row flag" style="--i:6"><span>Hud/Points</span><span class="type">Text</span><span>You have {[POINTS]} points[i2p_Zero]…</span><span>—</span></div>
+            <div class="row skip" style="--i:7"><span>Ui/HeaderFont</span><span class="type">Font</span><span>—</span><span>—</span></div>
+              </div>
+              <p class="status-line"><span class="dot"></span> 4 collections imported &middot; 1 value flagged for review &middot; 1 non-text term not moved</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="stage" data-step="4" id="step-verify">
+          <h3>4 &middot; Verify — the part you no longer do by eye</h3>
+          <p class="what">The imported tables are compared against your original export. Missing keys, changed
+             values, duplicates, extra keys and locale columns that never arrived are counted — any one of them
+             fails the check. A cell that was empty in the source is counted separately, not hidden.</p>
+          <div class="sim">
+            <div class="bar"><i></i><i></i><i></i> Verify <span class="right"><span class="counter" id="counter" data-target="13">0</span> / 13 cells</span></div>
+            <div class="body">
+              <div class="cells" aria-label="13 cells compared; one cell is empty in the source">
+                <div class="cell on" style="--i:0">en</div><div class="cell on" style="--i:1">ja</div>
+                <div class="cell on" style="--i:2">en</div><div class="cell on" style="--i:3">ja</div>
+                <div class="cell on" style="--i:4">en</div><div class="cell on" style="--i:5">ja</div>
+                <div class="cell on" style="--i:6">en</div><div class="cell on" style="--i:7">ja</div>
+                <div class="cell on" style="--i:8">en</div><div class="cell on" style="--i:9">ja</div>
+                <div class="cell on" style="--i:10">en</div><div class="cell on" style="--i:11">ja</div>
+                <div class="cell on" style="--i:12">en</div><div class="cell empty" title="empty in the source — no entry is created, and it is not counted as missing">ja</div>
+              </div>
+              <div class="verdict">
+                <div class="badge">&#10003;</div>
+                <div><b>PASS — every imported key and cell checked.</b>
+                     <span>7 keys &middot; 2 locales &middot; 13 cells compared &middot; missing 0, changed 0, duplicate 0, extra 0, missing locale column 0, uncomparable 0 &middot; 1 cell empty in the source</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catch alt">
+  <div class="wrap">
+    <p class="eyebrow">What LocaleProof catches</p>
+    <h2>What moves, what is flagged, what stays behind</h2>
+    <p class="lede">Sorted before anything is written. The same eight sample terms, in the three groups
+       the tool reports.</p>
+    <div class="cols3">
+      <article class="bucket moved reveal">
+        <header><i></i><h3>Moved</h3></header>
+        <ul>
+          <li>Default/Title <em>Text</em></li><li>Menu/Start <em>Text</em></li><li>Menu/Options <em>Text</em></li>
+          <li>Menu/Quit <em>Text</em></li><li>Shop/Price <em>Text</em></li><li>Shop/SoldOut <em>Text</em></li>
+        </ul>
+        <p>Text terms, every language column you map, categories as separate tables or one. Written to the
+           generated CSV and imported into your String Tables.</p>
+      </article>
+      <article class="bucket flagged reveal">
+        <header><i></i><h3>Moved unchanged + flagged</h3></header>
+        <ul><li>Hud/Points <em>plural tag, parameter token</em></li></ul>
+        <p>Values with I2 plural tags or <code>{[PARAMETER]}</code> tokens are carried across exactly as they
+           are and listed for review. They are not rewritten into Smart Strings, because that mapping is
+           not one-to-one.</p>
+      </article>
+      <article class="bucket stays reveal">
+        <header><i></i><h3>Not moved</h3></header>
+        <ul><li>Ui/HeaderFont <em>Font</em></li></ul>
+        <p>Non-text terms — Font, Texture, Sprite, Atlas, Sound, Prefab. A String Table holds strings, so
+           these stay behind, and you know before the first byte is written.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <p class="eyebrow">Proof, not promises</p>
+    <h2>Only what was measured is written here</h2>
+    <p class="lede">These pages say what was run and on which Editor — and what was never tested.</p>
+    <div class="facts">
+      <div class="fact reveal"><span class="big">6000.3.22f1</span><b>Localization 1.5.4 and 1.5.9 — pass</b><span>Automated tests executed on a real Unity Editor, including negative tests that must fail when the code is broken.</span></div>
+      <div class="fact reveal"><span class="big">6000.6.0f1</span><b>Localization 1.5.13 — pass</b><span>In our tests, Localization 1.5.9 did not compile on 6000.6 — the package itself failed, not LocaleProof. Use 1.5.13 there.</span></div>
+      <div class="fact reveal"><span class="big">SHA-256</span><b>Byte-for-byte parity</b><span>Conversion output is compared byte-for-byte against a separate reference implementation of our own, across five fixed datasets, including one with 1,000 keys × 10 languages.</span></div>
+      <div class="fact reveal"><span class="big">0</span><b>Telemetry, network calls, accounts</b><span>Editor-only assembly, nothing in your build, source included. It reads the files you select and writes only where you tell it to.</span></div>
+    </div>
+    <p class="fine" style="margin-top:1.4rem">Localization 1.5.10–1.5.12 have not been measured and are not claimed as supported. Tested on macOS only.</p>
+  </div>
+</section>
+
+<section class="real alt" id="real">
+  <div class="wrap">
+    <p class="eyebrow">Real product</p>
+    <h2>This is the actual Editor window — not a concept image</h2>
+    <p class="lede">Both screenshots are the actual LocaleProof window in Unity, run on the bundled sample.</p>
+    <figure class="window reveal">
+      <div class="window-bar"><i></i><i></i><i></i><span>LocaleProof window (Japanese UI) — after Verify</span></div>
+      <img src="/assets/img/localeproof/editor-verify.png" alt="The LocaleProof window in Unity showing the four steps and a passing verification result" width="1600" height="975">
+      <figcaption>After a full run: 13 cells compared, nothing missing, changed, duplicated or extra.</figcaption>
+    </figure>
+    <figure class="window reveal">
+      <div class="window-bar"><i></i><i></i><i></i><span>LocaleProof window (Japanese UI) — after Inspect</span></div>
+      <img src="/assets/img/localeproof/editor-inspect.png" alt="The LocaleProof window after the inspect step, listing language columns, keys and the out-of-scope terms" width="1600" height="975">
+      <figcaption>Step 1: two language columns and eight keys — one term that does not move at all, and one that moves unchanged but is flagged for review.</figcaption>
+    </figure>
+
+    <h3 style="margin-top:2rem">Compatibility</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Unity</th><th>Localization package</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>6000.3.22f1</td><td>1.5.4</td><td class="pass">Pass</td></tr>
+          <tr><td>6000.3.22f1</td><td>1.5.9</td><td class="pass">Pass</td></tr>
+          <tr><td>6000.6.0f1</td><td>1.5.13</td><td class="pass">Pass</td></tr>
+          <tr><td>6000.6.0f1</td><td>1.5.9</td><td>In our tests, Localization 1.5.9 did not compile on 6000.6 — the package itself failed, not LocaleProof. Use 1.5.13 there.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="margin-top:1.5rem">Requirements and scope</h3>
+    <ul class="plain">
+      <li>The <code>com.unity.localization</code> package (which itself brings in <code>com.unity.nuget.newtonsoft-json</code>).</li>
+      <li><strong>I2 Localization is not required</strong> in the project you migrate into. LocaleProof reads only the CSV you exported yourself; it never reads I2's own files.</li>
+      <li>Out of scope: replacing I2 components on scenes and prefabs; migrating non-text terms; rewriting plural tags or parameter tokens into Smart Strings; language headers with a language code in brackets, such as <code>English [en]</code>.</li>
+      <li>Rollback removes only the generated files recorded in the manifest. String Table Collections and Locales you created are never deleted.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="cta" id="get">
+  <div class="wrap">
+    <h2>Move with confidence. Verify before you trust.</h2>
+    <p>LocaleProof is being prepared for submission to the Unity Asset Store.
+       The store link will appear here once the listing is live — until then there is nothing to buy.</p>
+    <div class="actions">
+      <a class="btn" href="mailto:shiroipapaapps@gmail.com">Ask a question</a>
+      <a class="btn btn-ghost" href="/support/">Support</a>
+    </div>
+    <p class="ja" style="margin-top:1.6rem">LocaleProof は、I2 Localization から書き出した CSV を Unity 公式 Localization パッケージの String Table へ移し、
+       元データと 1 セルずつ突き合わせて確認する Editor ツールです。日本語のドキュメントを同梱しています。
+       現在 Unity Asset Store へ提出準備中で、公開後にこのページへ購入リンクを載せます。</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reduced = document.documentElement.classList.contains('no-motion');
+  var rail = document.getElementById('rail');
+  var stages = Array.prototype.slice.call(document.querySelectorAll('.stage'));
+  var counter = document.getElementById('counter');
+
+  function setRail(step) {
+    Array.prototype.forEach.call(rail.children, function (li) {
+      var n = +li.getAttribute('data-step');
+      li.classList.toggle('is-active', n === step);
+      li.classList.toggle('is-done', n < step);
+    });
+  }
+  function countUp(el) {
+    var target = +el.getAttribute('data-target'), t0 = null;
+    if (reduced) { el.textContent = target; return; }
+    function tick(ts) {
+      if (!t0) t0 = ts;
+      var k = Math.min(1, (ts - t0) / 1500);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - k, 2)));
+      if (k < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  function activate(stage) {
+    if (stage.classList.contains('is-active')) return;
+    stage.classList.add('is-active');
+    var step = +stage.getAttribute('data-step');
+    setRail(step);
+    if (step === 4 && counter) countUp(counter);
+  }
+
+  if (!('IntersectionObserver' in window) || reduced) {
+    stages.forEach(activate); setRail(4); if (counter) counter.textContent = counter.getAttribute('data-target');
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) activate(e.target); });
+  }, { rootMargin: '0px 0px -35% 0px' });
+  stages.forEach(function (s) { io.observe(s); });
+
+  var ro = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); ro.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { ro.observe(el); });
+})();
+</script>
+<footer class="site-footer">
+  <div class="wrap cols">
+    <div>
+      <p><strong style="color:#fff">Shiroipapa Apps</strong></p>
+      <p>Small tools for a brighter tomorrow.</p>
+    </div>
+    <div>
+      <p><a href="/products/">Products</a></p>
+      <p><a href="/about/">About</a></p>
+    </div>
+    <div>
+      <p><a href="/support/">Support &amp; contact</a></p>
+      <p><a href="/privacy/">Privacy</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
